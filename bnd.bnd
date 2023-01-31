@@ -1,0 +1,4 @@
+Bundle-Name: users-mvc-portlet-proj
+Bundle-SymbolicName: dev.b7w23z.mvcportlet
+Bundle-Version: 1.0.0
+Export-Package: dev.b7w23z.mvcportlet.constants
