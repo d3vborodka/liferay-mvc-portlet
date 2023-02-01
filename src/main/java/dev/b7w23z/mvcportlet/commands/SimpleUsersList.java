@@ -21,7 +21,7 @@ public class SimpleUsersList implements MVCRenderCommand {
 
     @Override
     public String render(RenderRequest renderRequest, RenderResponse renderResponse) throws PortletException {
-        renderRequest.setAttribute("users", UserUtils.getUserList());
+        renderRequest.setAttribute("users", UserUtils.getUserList(renderRequest));
 
         return UsersMvcPortletKeys.USERS_LIST_SIMPLE_VIEW;
     }

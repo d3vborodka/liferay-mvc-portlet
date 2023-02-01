@@ -16,25 +16,34 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${users}" var="_user">
-            <tr class="table-title">
-                <td class="table-column-text-center" colspan="1">
-                    <c:out value="${_user.id}"/>
-                </td>
-                <td class="table-column-text-center" colspan="1">
-                    <c:out value="${_user.fullName}"/>
-                </td>
-                <td class="table-column-text-center" colspan="1">
-                    <c:out value="${_user.email}"/>
-                </td>
-                <td class="table-column-text-center" colspan="1">
-                    <c:out default="empty" value="${_user.position}"/>
-                </td>
-                <td class="table-column-text-center" colspan="1">
-                    <fmt:formatDate pattern="dd-MM-yyyy г." value="${_user.birthday}"/>
-                </td>
-            </tr>
-        </c:forEach>
+        <c:choose>
+            <c:when test="${empty users}">
+                <tr>
+                    <td class="table-column-text-center" colspan="5">Нет доступных элементов для отображения</td>
+                </tr>
+            </c:when>
+            <c:otherwise>
+                <c:forEach items="${users}" var="_user">
+                    <tr class="table-title">
+                        <td class="table-column-text-center" colspan="1">
+                            <c:out value="${_user.id}"/>
+                        </td>
+                        <td class="table-column-text-center" colspan="1">
+                            <c:out value="${_user.fullName}"/>
+                        </td>
+                        <td class="table-column-text-center" colspan="1">
+                            <c:out value="${_user.email}"/>
+                        </td>
+                        <td class="table-column-text-center" colspan="1">
+                            <c:out default="empty" value="${_user.position}"/>
+                        </td>
+                        <td class="table-column-text-center" colspan="1">
+                            <fmt:formatDate pattern="dd-MM-yyyy г." value="${_user.birthday}"/>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
         </tbody>
     </table>
 </div>

@@ -4,7 +4,7 @@
 
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<liferay-ui:search-container total="${fn:length(users)}">
+<liferay-ui:search-container total="${fn:length(users)}" emptyResultsMessage="Нет доступных элементов для отображения">
     <liferay-ui:search-container-results results="${users}"/>
     <liferay-ui:search-container-row
             className="dev.b7w23z.mvcportlet.dto.UserDto"
